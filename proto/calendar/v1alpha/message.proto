@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package calendar.v1alpha;
+
+import "user/v1alpha/calendar.proto";
+
+message CreateEventRequest {
+    string calendar_id = 1;
+    Event event = 2;
+}
+
+message CreateEventResponse {
+    Event event = 1;
+}
+
+message GetEventRequest {
+    string calendar_id = 1;
+    string event_id = 2;
+}
+
+message GetEventResponse {
+    Event event = 1;
+}
+
+message Event {
+    string id = 1;
+    string calendar_id = 2;
+    string summary = 3;
+    string description = 4;
+    google.protobuf.Timestamp start = 5;
+    google.protobuf.Timestamp end = 6;
+    google.protobuf.Timestamp created_at = 7;
+    google.protobuf.Timestamp updated_at = 8;
+}
+
+message ListEventsRequest {
+    string calendar_id = 1;
+    string time_min = 2;
+    string time_max = 3;
+    string order_by = 4;
+    int max_results = 5;
+    string page_token = 6;
+}
+
+message ListEventsResponse {
+    Events events = 1;
+    string next_page_token = 2;
+}
+
+message DeleteEventRequest {
+    string calendar_id = 1;
+    string event_id = 2;
+}
+
+message DeleteEventResponse {
+    Event event = 1;
+}
+
+message UpdateEventRequest {
+    string calendar_id = 1;
+    string event_id = 2;
+    Event event = 3;
+}
+
+message UpdateEventResponse {
+    Event event = 1;
+}
