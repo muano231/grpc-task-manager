@@ -2,14 +2,10 @@ syntax = "proto3";
 
 package calendar.v1alpha;
 
-import "user/v1alpha/calendar.proto";
-
-option go_package = "stubs";
-
 service CalendarService {
-    rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse) {}
-    rpc GetEvent(GetEventRequest) returns (GetEventResponse) {}
-    rpc ListEvents(ListEventsRequest) returns (ListEventsResponse) {}
-    rpc DeleteEvent(DeleteEventRequest) returns (DeleteEventResponse) {}
-    rpc UpdateEvent(UpdateEventRequest) returns (UpdateEventResponse) {}
+    rpc CreateCalendar(CreateCalendarRequest) returns (CreateCalendarResponse) {}
+    rpc GetCalendar(GetCalendarRequest) returns (GetCalendarResponse) {}
+    rpc ListCalendars(ListCalendarsRequest) returns (ListCalendarsResponse) {}
+    rpc DeleteCalendar(DeleteCalendarRequest) returns (DeleteCalendarResponse) {}
+    rpc UpdateCalendar(UpdateCalendarRequest) returns (UpdateCalendarResponse) {}
 }

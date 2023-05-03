@@ -1,30 +1,28 @@
 syntax = "proto3";
 
-package calendar.v1alpha;
+package task.v1alpha;
 
-import "user/v1alpha/calendar.proto";
-
-message CreateEventRequest {
-    string calendar_id = 1;
-    Event event = 2;
+message CreateCalendarRequest {
+    string user_id = 1;
+    Calendar calendar = 2;
 }
 
-message CreateEventResponse {
-    Event event = 1;
+message CreateCalendarResponse {
+    Calendar calendar = 1;
 }
 
-message GetEventRequest {
-    string calendar_id = 1;
-    string event_id = 2;
-}
-
-message GetEventResponse {
-    Event event = 1;
-}
-
-message Event {
-    string id = 1;
+message GetCalendarRequest {
+    string user_id = 1;
     string calendar_id = 2;
+}
+
+message GetCalendarResponse {
+    Calendar calendar = 1;
+}
+
+message Calendar {
+    string id = 1;
+    string user_id = 2;
     string summary = 3;
     string description = 4;
     google.protobuf.Timestamp start = 5;
@@ -33,8 +31,8 @@ message Event {
     google.protobuf.Timestamp updated_at = 8;
 }
 
-message ListEventsRequest {
-    string calendar_id = 1;
+message ListCalendarsRequest {
+    string user_id = 1;
     string time_min = 2;
     string time_max = 3;
     string order_by = 4;
@@ -42,26 +40,26 @@ message ListEventsRequest {
     string page_token = 6;
 }
 
-message ListEventsResponse {
-    Events events = 1;
+message ListCalendarsResponse {
+    Calendars calendars = 1;
     string next_page_token = 2;
 }
 
-message DeleteEventRequest {
-    string calendar_id = 1;
-    string event_id = 2;
+message DeleteCalendarRequest {
+    string user_id = 1;
+    string calendar_id = 2;
 }
 
-message DeleteEventResponse {
-    Event event = 1;
+message DeleteCalendarResponse {
+    Calendar calendar = 1;
 }
 
-message UpdateEventRequest {
-    string calendar_id = 1;
-    string event_id = 2;
-    Event event = 3;
+message UpdateCalendarRequest {
+    string user_id = 1;
+    string calendar_id = 2;
+    Calendar calendar = 3;
 }
 
-message UpdateEventResponse {
-    Event event = 1;
+message UpdateCalendarResponse {
+    Calendar calendar = 1;
 }
