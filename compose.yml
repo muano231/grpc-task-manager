@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mariadb:
@@ -18,7 +18,6 @@ services:
     ports:
       - 16686:16686
       - 14268:14268
-
 
   auth-api:
     extends:
